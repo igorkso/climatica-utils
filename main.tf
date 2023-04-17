@@ -48,6 +48,8 @@ resource "libvirt_domain" "ubuntu" {
   name   = "${var.vms}"
   memory = "${var.MEMORY_SIZE}"
   vcpu   = "${var.VCPU_SIZE}"
+  #host = "{var.vms}"  
+
 
   network_interface {
     network_name = "default"
