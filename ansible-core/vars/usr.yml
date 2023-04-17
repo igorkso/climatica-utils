@@ -1,0 +1,5 @@
+- name: igor
+  password: "senha123"
+  groups: sudo
+  home: "/home/igor"
+  shell: "/bin/bash"

@@ -1,0 +1,9 @@
+- vm: vm1 
+  name: "nfs"
+
+- vm: vm2
+  name: "clients"
+
+- vm: vm3
+  name: "test"
+

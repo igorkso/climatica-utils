@@ -1,0 +1,43 @@
+- name: Verificar estado da VM original
+  hosts: localhost 
+  become: yes
+
+  vars_files:
+    - vars/default.yml
+
+  tasks:
+    # Verificar se a VM está desligada
+    - name: Verificar se a VM está desligada
+      virt:
+        name: "{{ vm_name }}"
+        state: "shutdown"
+      register: vm_shutdown
+
+    # Tarefa para desligar a VM, se necessário
+    - name: Desligar a VM, se necessário
+      virt:
+        name: "{{ vm_name }}"
+        state: "shutdown"
+      when: vm_shutdown.changed
+
+- name: Criar nova VM a partir de um snapshot
+  hosts: localhost
+  become: yes
+
+  vars_files:
+    - vars/default.yml
+
+  tasks:
+    # Tarefa para criar a nova VM
+    - name: Criar nova VM com base no snapshot
+      command: >
+        virt-clone
+        --name={{ new_vm_name }}
+        --original={{ vm_snapshot_path }}
+        --force
+
+    # Tarefa para definir a nova VM como autostart
+    - name: Definir nova VM como autostart
+      command: >
+        virsh
+        autostart {{ new_vm_name }}
