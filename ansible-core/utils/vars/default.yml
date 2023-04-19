@@ -1,6 +1,0 @@
-vm_name: "nfs"
-new_vm_name: "nfs-test"
-vm_disk: "/home/igor.oliveira/meteorology_infraestructure/pool/{{ vm_name }}.qcow2"
-vm_snapshot_path: '/home/igor.oliveira/meteorology_infraestructure/pool/commoninit_0.iso'
-
-

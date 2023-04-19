@@ -9,37 +9,6 @@
   tasks:
     - name: Create shared dir
       ansible.builtin.command: mkdir /shared 
-    
-- name: Install NFS
-  hosts: servers
-  remote_user: "{{ admin_user }}"
-  become: true
-  vars_files:
-    - vars/default.yml
-
-  tasks:
-    - name: Update apt repo and cache
-      apt:
-        update_cache: yes
-        cache_valid_time: 3600
-
-    - name: Download and Install NFS-SERVER
-      apt:
-        name: nfs-server
-        state: latest
-   
-    - name: Config exports
-      copy:
-        src: exports
-        dest: /etc/exports
-
-    - name: Restart NFS-SERVER 
-      systemd:
-        state: restarted
-        daemon_reload: yes
-        name: nfs-server.service
-    
-    - name: Setting permisions on shared data directory
       ansible.builtin.command: chmod 777 /shared 
 
 

@@ -77,8 +77,8 @@ variable "vms" {
 }
 
 variable "network" {
-  type    = string
-  default = "network-name"
+  type     = string
+  default  = "network-name"
 }
 
 variable "interface" {
@@ -117,9 +117,9 @@ variable "mac-address" {
 
 }
 
-variable "hostname" {
+variable "HOSTNAME" {
 
   type    = string
-  default = "myhost"
+  default = "VM"
 
 }
