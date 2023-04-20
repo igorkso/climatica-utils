@@ -35,7 +35,11 @@ resource "libvirt_volume" "ubuntu-qcow2-resized" {
 
 
 data "template_file" "user_data" {
-  template = "${file("${path.module}/cloud_init.cfg")}"
+  
+  template = templatefile("${path.module}/templates/cloud_init.tpl", {
+  hostname = var.vms
+  })
+
 }
 
 resource "libvirt_cloudinit_disk" "cloud_init" {
