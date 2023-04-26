@@ -5,6 +5,10 @@
 192.168.122.61
 192.168.122.36
 
+[core]
+150.165.83.92
+
+
 [all:children]
 servers
 clients
