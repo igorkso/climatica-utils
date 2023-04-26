@@ -73,7 +73,7 @@ variable "auth_access" {
 
 variable "vms" {
     type    = string 
-    default = "NOME_DA_VM"
+    default = "sandr"
 }
 
 variable "network" {
@@ -111,11 +111,11 @@ variable "disk" {
   default =  21474836480 #20G
 }
 
-variable "mac-address" {
-  type    = list
-  default = ["52:54:00:ee:3b:c1", "52:54:00:b6:e0:b2", "52:54:00:a7:b0:a9"]
-
-}
+#variable "mac-address" {
+#  type    = string
+#  default = "52:54:00:ee:3b:c1"
+#
+#}
 
 variable "HOSTNAME" {
 
